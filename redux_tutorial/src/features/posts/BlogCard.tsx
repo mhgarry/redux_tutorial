@@ -1,7 +1,9 @@
-const BlogCard = (props: { posts: any }) => {
+import { IPost } from "../../typings";
+
+const BlogCard = (props: { posts: IPost[]}) =>{
   return (
-    <>
-      {props.posts.map((post: any) => {
+ <>
+      {props.posts.map((post) => {
         return (
           <section className="card" key={post.id}>
             <div className="card-header">
