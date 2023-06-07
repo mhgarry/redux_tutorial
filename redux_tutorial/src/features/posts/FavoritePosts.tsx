@@ -1,9 +1,9 @@
-import BlogCard from './BlogCard';
-import NoFavoritePosts from './NoFavoritePosts';
+import BlogCard from "./BlogCard";
+import NoFavoritePosts from "./NoFavoritePosts";
 
 const FavoritePosts = () => {
   const favoritePosts: any[] = [];
-  if(!favoritePosts.length) {
+  if (!favoritePosts.length) {
     return <NoFavoritePosts />;
   }
   return (
@@ -12,5 +12,4 @@ const FavoritePosts = () => {
     </>
   );
 };
-
 export default FavoritePosts;

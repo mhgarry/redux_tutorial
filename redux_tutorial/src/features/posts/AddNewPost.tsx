@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { IPost } from "../../typings";
 import PostInputForm from "./PostInputForm";
 
 const AddNewPost = () => {
   const [title, setTitle] = useState("Blog Title");
-  const [content, setContent] = useState("Blog Content");
+  const [content, setContent] = useState("Blog Details");
 
   const submitPost = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -25,9 +25,8 @@ const AddNewPost = () => {
         content={content}
         setTitle={setTitle}
         setContent={setContent}
-        />
+      />
     </>
   );
 };
-
 export default AddNewPost;

@@ -4,7 +4,7 @@ import {
   switchToAddNewPostComponent,
   switchToAllPostsComponent,
   switchToFavoriteComponent
-} from "./NavigationSlice";
+} from "./navigationSlice";
 
 
 const NavigationBar = () => {
@@ -33,7 +33,7 @@ const NavigationBar = () => {
           className={
             currentComponent === "AddNewPostComponent"
               ? "nav-item active" :
-               "nav-item"}
+                "nav-item"}
                onClick={() => dispatch(switchToAddNewPostComponent())}
           >
             <span className="add-icon">+</span>Add New

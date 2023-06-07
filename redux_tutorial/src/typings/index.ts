@@ -7,12 +7,11 @@ export interface IPost {
 } // Define the state type for the data we will store in the store (the posts)
 
 export interface INavigationState {
-  currentComponent:
-  | "AllPostsComponent"
-  | "AddNewPostComponent"
-  | "FavoriteComponent"
-  | "PostComponent"
-  | "EditPostComponent"
-  | "ViewPostComponent";
-} // Defines the currentcomponent property that can be one of five strings (the names of the components)
+    currentComponent:
+      | "AllPostsComponent"
+      | "AddNewPostComponent"
+      | "FavoriteComponent"
+      | "EditPostComponent"
+      | "ViewPostComponent";
+  } // Defines the currentcomponent property that can be one of five strings (the names of the components)
 

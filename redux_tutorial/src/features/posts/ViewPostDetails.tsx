@@ -1,5 +1,5 @@
-const ViewPost = () => {
-  const post = { title: "", content: ""};
+const ViewPostDetails = () => {
+  const post = { title: "", content: "" };
   return (
     <>
       <section className="view-post-container">
@@ -7,7 +7,6 @@ const ViewPost = () => {
         <p className="view-post-content">{post.content}</p>
       </section>
     </>
-  )
-}
-
-export default ViewPost;
+  );
+};
+export default ViewPostDetails;

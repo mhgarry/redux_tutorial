@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { IPost } from '../../typings';
-import PostInputForm from './PostInputForm';
+import { useState } from "react";
+import { IPost } from "../../typings";
+import PostInputForm from "./PostInputForm";
+
 const EditPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -18,15 +19,14 @@ const EditPost = () => {
   };
   return (
     <>
-     <PostInputForm
+      <PostInputForm
         submitPost={updatePost}
         title={title}
         content={content}
         setTitle={setTitle}
         setContent={setContent}
-        />
+      />
     </>
   );
 };
-
 export default EditPost;
