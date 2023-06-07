@@ -2,6 +2,8 @@ import { useState } from "react";
 import { IPost } from "../../typings";
 import PostInputForm from "./PostInputForm";
 
+
+
 const AddNewPost = () => {
   const [title, setTitle] = useState("Blog Title");
   const [content, setContent] = useState("Blog Details");
