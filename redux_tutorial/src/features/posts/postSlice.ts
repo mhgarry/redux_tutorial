@@ -19,7 +19,7 @@ export const postSlice = createSlice({
     upvotePost: (state, actions:{payload: number}) => {
       const updatedPosts = state.allPosts.map((post) => {
         if (post.id === actions.payload) {
-          return { ...post, voteCount: post.voteCount + 1};
+          return { ...post, voteCount: post.voteCount ++};
         }
         return post;
       });
@@ -28,7 +28,7 @@ export const postSlice = createSlice({
       downvotePost: (state, actions:{payload: number}) => {
         const updatedPosts = state.allPosts.map((post) => {
           if (post.id === actions.payload) {
-            return {...post, voteCount: post.voteCount - 1};
+            return {...post, voteCount: post.voteCount --};
           }
           return post;
         })
