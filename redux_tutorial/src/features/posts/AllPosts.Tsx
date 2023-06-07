@@ -1,8 +1,11 @@
 import BlogCard from "./BlogCard";
 import NoPosts from "./NoPosts";
 
+import { useAppSelector } from "../../app/hooks";
+import { selectAllPosts } from "./postSlice";
+
 const AllPosts = () => {
-  const allPosts: any = [];
+  const {allPosts} = useAppSelector(selectAllPosts)
   if (!allPosts.length) {
     return <NoPosts />;
   }
