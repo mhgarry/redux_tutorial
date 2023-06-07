@@ -1,11 +1,23 @@
-import { useAppDispatch } from "../../app/hooks";
 import { IPost } from "../../typings";
-import { downvotePost, upvotePost } from "./postSlice";
 
-const BlogCard = (props: { posts: IPost[]}) =>{
+import { useAppDispatch } from "../../app/hooks";
+import {
+  downvotePost,
+  setCurrentPost,
+  toggleFavorite,
+  upvotePost
+} from "./postSlice";
+
+import { switchToViewPostComponent } from "../navigations/navigationSlice";
+
+const BlogCard = (props: { posts: IPost[] }) => {
   const dispatch = useAppDispatch();
+  const viewDetails = (post: IPost) => {
+    dispatch(setCurrentPost(post));
+    dispatch(switchToViewPostComponent())
+  }
   return (
- <>
+    <>
       {props.posts.map((post) => {
         return (
           <section className="card" key={post.id}>
@@ -13,7 +25,12 @@ const BlogCard = (props: { posts: IPost[]}) =>{
               <span className="edit-icon">✎</span>
               <h1 className="delete-icon">x</h1>
             </div>
-            <section className="card-body">
+            <section
+              className="card-body"
+              onClick={() => {
+                viewDetails(post);
+              }}
+            >
               <h1 className="card-title">
                 {post.title.length > 150
                   ? post.title.slice(0, 150) + "..."
@@ -26,27 +43,23 @@ const BlogCard = (props: { posts: IPost[]}) =>{
               </p>
             </section>
             <section className="card-bottom">
-              <section>
-                <span
-                  className="favorite"
-                >
-                  ♥
-                </span>
+              <section onClick={() => dispatch(toggleFavorite(post.id))}>
+                <span className="favorite">{post.isFavorite ? "♥" : "♡"}</span>
               </section>
               <section className="rating-section">
-               <span
-                className="upvote"
-                onClick={() => dispatch(upvotePost(post.id))}
+                <span
+                  className="upvote"
+                  onClick={() => dispatch(upvotePost(post.id))}
                 >
-                  👍
+                  ⇧
                 </span>
                 <span className="vote-counter">{post.voteCount}</span>
                 <span
                   className="downvote"
                   onClick={() => dispatch(downvotePost(post.id))}
-                  >
-                  👎
-                  </span>
+                >
+                  ⇩
+                </span>
               </section>
             </section>
           </section>
