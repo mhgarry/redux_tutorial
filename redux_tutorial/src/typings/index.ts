@@ -13,6 +13,6 @@ export interface INavigationState {
   | "FavoriteComponent"
   | "PostComponent"
   | "EditPostComponent"
-  | "DeletePostComponent";
+  | "ViewPostComponent";
 } // Defines the currentcomponent property that can be one of five strings (the names of the components)
 
