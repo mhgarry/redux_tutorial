@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import navigationReducer from "../features/navigations/NavigationSlice";
 
 export const store = configureStore({
-  reducer: {},
-}); // reducer: {} is empty for now
+  reducer: {navigation: navigationReducer},
+}); // reducer is an object that contains the reducers for the different parts of the state
 
 export type AppDispatch = typeof store.dispatch; // Export a type for the dispatch function so that we can use it elsewhere
 

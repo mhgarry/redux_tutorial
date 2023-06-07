@@ -1,10 +1,11 @@
-import { useState } from 'react';
-
+import React, { useState } from 'react';
+import { IPost } from '../../typings';
+import PostInputForm from './PostInputForm';
 const EditPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const updatePost = (e: FormEvent<HTMLFormElement>) => {
+  const updatePost = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const post: IPost = {
       id: Date.now(),
@@ -17,13 +18,13 @@ const EditPost = () => {
   };
   return (
     <>
-    <PostInputForm
-      submitPost={updatePost}
-      title={title}
-      content={content}
-      setTitle={setTitle}
-      setContent={setContent}
-      />
+     <PostInputForm
+        submitPost={updatePost}
+        title={title}
+        content={content}
+        setTitle={setTitle}
+        setContent={setContent}
+        />
     </>
   );
 };

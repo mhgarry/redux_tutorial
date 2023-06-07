@@ -6,7 +6,7 @@ const AddNewPost = () => {
   const [title, setTitle] = useState("Blog Title");
   const [content, setContent] = useState("Blog Content");
 
-  const submitPost = (e: FormEvent<HTMLFormElement>) => {
+  const submitPost = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const post: IPost = {
       id: Date.now(),
