@@ -8,7 +8,7 @@ import {
   upvotePost
 } from "./postSlice";
 
-import { switchToViewPostComponent } from "../navigations/navigationSlice";
+import { switchToEditPostComponent, switchToViewPostComponent } from "../navigations/navigationSlice";
 
 const BlogCard = (props: { posts: IPost[] }) => {
   const dispatch = useAppDispatch();
@@ -16,13 +16,18 @@ const BlogCard = (props: { posts: IPost[] }) => {
     dispatch(setCurrentPost(post));
     dispatch(switchToViewPostComponent())
   }
+  const editBlog = (post: IPost) => {
+    dispatch(setCurrentPost(post));
+    dispatch(switchToEditPostComponent());
+  };
   return (
     <>
       {props.posts.map((post) => {
         return (
           <section className="card" key={post.id}>
             <div className="card-header">
-              <span className="edit-icon">✎</span>
+              <span className="edit-icon"
+                    onClick={()=> editBlog(post)}>✎</span>
               <h1 className="delete-icon">x</h1>
             </div>
             <section
