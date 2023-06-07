@@ -13,6 +13,7 @@ const PostInputForm = (props: {
         <h1>Create a new Post</h1>
         <input
           type="text"
+          name="title"
           className="title-input"
           value={props.title}
           onChange={(e) => props.setTitle(e.target.value)}
