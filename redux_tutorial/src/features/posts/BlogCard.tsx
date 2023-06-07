@@ -2,6 +2,7 @@ import { IPost } from "../../typings";
 
 import { useAppDispatch } from "../../app/hooks";
 import {
+  deletePost,
   downvotePost,
   setCurrentPost,
   toggleFavorite,
@@ -28,7 +29,7 @@ const BlogCard = (props: { posts: IPost[] }) => {
             <div className="card-header">
               <span className="edit-icon"
                     onClick={()=> editBlog(post)}>✎</span>
-              <h1 className="delete-icon">x</h1>
+              <h1 className="delete-icon" onClick={() => dispatch(deletePost(post.id))}>x</h1>
             </div>
             <section
               className="card-body"
