@@ -47,3 +47,20 @@ exports.isUser = (req, res, next) => {
 		});
 	}
 };
+
+exports.isAdmin = (req, res, next) => {
+	try {
+		if (req.user.role !== "admin") {
+			return res.status(401).json({
+				success: false,
+				message: "You are not authorized to access this section of the website",
+			});
+		}
+		next();
+	} catch (err) {
+		return res.status(500).json({
+			success: false,
+			message: "Something went wrong",
+		});
+	}
+};
